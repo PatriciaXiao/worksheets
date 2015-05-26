@@ -1,0 +1,217 @@
+\documentclass[11pt]{article}
+\usepackage{url,graphicx,tabularx,array,geometry,enumerate}
+\setlength{\parskip}{1ex} %--skip lines between paragraphs
+\setlength{\parindent}{0pt} %--don't indent paragraphs
+
+% template modified from http://www.shawnlankton.com/2008/04/latex-template-for-homeworks/
+
+%-- Commands for header
+\renewcommand{\title}[1]{\large\textbf{#1}\\}
+\renewcommand{\line}{\begin{tabularx}{\textwidth}{X>{\raggedleft}X}\hline\\\end{tabularx}\\[-0.5cm]}
+\newcommand{\leftright}[2]{\begin{tabularx}{\textwidth}{X>{\raggedleft}X}#1%
+& #2\\\end{tabularx}\\[-0.5cm]}
+
+%\linespread{2} %-- Uncomment for Double Space
+\begin{document}
+
+% \title{Linguistics 100}
+\leftright{May 5, 2015}{\textbf{CS Self-Paced Center}} %-- left and right positions in the header
+\line
+
+% title
+\begin{center}
+    \Large\textbf{CS 9H Final Exam Review Problems}\\
+    \large{Python}
+ \end{center}
+
+
+
+\section{Warm-up}
+What will Python 2 print?
+\begin{enumerate}[a)]
+\item \texttt{>>> (2**3, 3) + (1,2)}
+\vspace{1cm}
+
+\item \texttt{>>> "foo" and [] or ""}
+\vspace{1cm}
+
+\item \texttt{>>> "foo" and [] or 42}
+\vspace{1cm}
+
+\item \texttt{for i in "0123": print i*2}
+\vspace{1cm}
+
+\item Write a statement that returns \texttt{[1, 2, 4, 8, 16, 32]} (list of powers of 2 through $2^{5}$)
+    \begin{enumerate}[i)]
+    \item using \texttt{map} and \texttt{lambda}.
+    \vspace{1cm}
+    \item using list comprehensions.
+    \vspace{1cm}
+    \end{enumerate}
+    
+\item \begin{verbatim}
+>>> def rearrange(arg): arg = arg[len(arg)//2:] + arg[:len(arg)//2]
+>>> a = [2,4,6,8,10]; rearrange(a)
+\end{verbatim}
+\vspace{1cm}
+
+
+\end{enumerate}
+
+% File IO problem??
+
+\section{Data Structures}
+What does the following function do? What is the structure of the parameter it takes? Give a general explanation, don't just describe each line of code. Provide an example input and output.
+\begin{verbatim}
+def wat(foo):
+    ret_val = {}
+    for thing in foo:
+        if thing[0] not in ret_val:
+            ret_val[thing[0]] = {}
+        for baz in thing[1]:
+            if baz not in ret_val[thing[0]]:
+                ret_val[thing[0]][baz] = thing[1][baz]
+            else:
+                ret_val[thing[0]][baz] += thing[1][baz]
+    return ret_val
+\end{verbatim}
+\vspace{15cm}
+
+\section{OOP}
+\begin{enumerate}[a)]
+\item Design a \texttt{Picture} class that holds a 2-dimensional collection of \texttt{Pixel} objects. Implement the following methods. The only error handling you need to worry about here is:
+\begin{itemize}
+\item When creating \texttt{Pixel} instances, the rgb values must be numbers [0,255]
+\item when cropping a \texttt{Picture}, the new dimensions must be smaller than or equal to the current dimensions (can't crop a \texttt{Picture} to be larger).
+\end{itemize}
+In these cases, throw an appropriate type of \texttt{Exception} with a helpful message.
+\begin{verbatim}
+class Pixel:
+    def __init__(self, r, g, b):
+
+
+
+
+        self.r = 
+        self.g = 
+        self.b = 
+
+    def __str__(self):
+        return str((self.r, self.g, self.b))
+
+class Picture:
+
+
+    def __init__(self, pixel_array):
+        self.pixels = 
+        self.length = 
+        self.width = 
+
+    def __str__(self):
+        repr = []
+        for row in self.pixels:
+            for pixel in row:
+                repr.append(str(pixel) + "  ")
+            repr.append("\n")
+        return "".join(repr)
+
+    def crop(self, new_length, new_width):
+        """crop the Picture to have the new dimensions
+        Ex. if a 3x3 image has pixels at
+        0 1 2
+        3 4 5
+        6 7 9
+        calling crop(2,2) would update the image to only contain
+        0 1
+        3 4"""
+
+
+
+
+
+
+
+
+
+
+    def grayscale(self):
+        """convert the Picture to grayscale by setting the RGB values
+        of each Pixel to the average of the RGB values of the Pixel.
+        Ex. if there is a pixel
+        p = Pixel(100, 0, 20)        
+        in a Picture img, after calling img.grayscale(), the value of p
+        would be equivalent to Pixel(40, 40, 40)
+        """
+
+
+
+
+
+
+
+
+
+
+    def add_filter(self, filter_name, filter_function):
+
+
+
+
+        
+    def apply_filter(self, filter):
+    
+    
+    
+    
+\end{verbatim}
+
+\item You realize that with the endless possibilities of image processing, it would be useful to let programmers to create and use their own filters. Update \texttt{Picture} to be able to store and use arbitrary filters. Assume that filters do not take any parameter. Example interaction, assuming that \texttt{sharpen} has been defined correctly earlier:
+\begin{verbatim}
+>>> img1 = Picture([[Pixel(100,0,20)]*4]*3) 
+>>> img2 = Picture([[Pixel(20,40, 60)]*5]*5) 
+>>> img1.add_filter("sharpen", sharpen)
+>>> img2.apply_filter("sharpen") # img2 has been sharpened
+\end{verbatim}
+
+\item What happens if you do
+\begin{verbatim}
+>>> pixels = [[Pixel(100,20,60)]*2]*2
+>>> img1 = Picture(pixels)
+>>> img2 = Picture(pixels)
+>>> img1.grayscale()
+>>> print img2
+
+\end{verbatim}
+
+\end{enumerate}
+
+\section{So you think you know Python?}
+\textnormal{These are just for fun, and are not topics covered on the final. The first is from programmingwats.tumblr.com and the second is via Mehrdad Niknami.}
+
+\begin{verbatim}
+>>> def my_append(item, lst = []):
+>>>     lst.append(item)
+>>>     return lst
+>>> print my_append(1)
+[1]
+>>> print my_append(5, [3, 1, 4, 1])
+[3, 1, 4, 1, 5]
+>>> print my_append(1)
+[1, 1]
+\end{verbatim}
+
+
+\begin{verbatim}
+
+>>> foo = float('nan')
+>>> foo in [foo]
+True
+>>> float('nan') in [foo]
+False
+>>> foo is foo
+True
+>>> foo == foo
+False
+\end{verbatim}
+
+\end{document}
