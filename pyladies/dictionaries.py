@@ -1,33 +1,42 @@
 #!/usr/bin/env python
 # coding: utf-8
+__author__ = "Angela Woodall"
+
 """
-This examples should help with understanding dictionaries.
+These examples should help with understanding dictionaries.
 Fix all the lines with the FIX ME
+
+Uncomment exercises as you go. 
+
+PyLadies Beginners Meetup 10-22-2015
 """
 
 ################################################################################
 # Exercise 0 : Create a dictionary with an example that makes sense
 # Phonebook, movies to stars, anything!
 ################################################################################
-my_dict_1 = {'loi': 2, 'pitches': 4, 'intros': 4} # FIX ME
+# FIX ME
+my_dict_1 = {'loi': 2, 'pitches': 4, 'intros': 4} 
 print("\nExercise 0")
-print("I just invented the dictionary ", my_dict_1)
+print "I just invented the dictionary ", my_dict_1
 
 ################################################################################
 # Exercise 1 : Count the elements in a dict
 ################################################################################
 print("\nExercise 1")
-print("my_dict_1 has {0} pairs".format(len(my_dict_1))) # FIX ME
+# FIX ME
+# print("my_dict_1 has {0} pairs".format(len(my_dict_1))) 
 
 ################################################################################
 # Exercise 4 : Print all the keys
 ################################################################################
 print("\nExercise 4")
-print("The keys in the dict are ", my_dict_1.keys()) # FIX ME
+# FIX ME
+# print("The keys in the dict are ", my_dict_1.keys()) 
 #for key in my_dict_1:
 	#print key
 
-AND:  
+# AND:  
 webster = {
     "Aardvark" : "A star of a popular children's cartoon show.",
     "Baa" : "The sound a goat makes.",
@@ -36,8 +45,8 @@ webster = {
 }
 
 # Add your code below!
-for key in webster: 
-    print webster[key]
+# for key in webster: 
+#     print webster[key]
 
 
 ################################################################################
@@ -45,7 +54,8 @@ for key in webster:
 ################################################################################
 
 print("\nExercise 5")
-print("The values in the dict are ", my_dict.values()) # FIX ME
+# FIX ME
+# print("The values in the dict are ", my_dict.values()) 
 #for key in my_dict_1:
      #print my_dict_1[key]
 
@@ -58,10 +68,10 @@ print("\nExercise 6")
 
 
 #print "The keys and values in my_dict_1 are: %s" %my_dict_1
-print "The keys and values in my_dict_1 are", my_dict_1
+# print "The keys and values in my_dict_1 are", my_dict_1
 
-or 
-print my_dict_1.items()
+# or 
+# print my_dict_1.items()
 
 ################################################################################
 # Exercise 7 : Print sequentially, all pairs (key, value) and an index using 
@@ -70,38 +80,41 @@ print my_dict_1.items()
 print("\nExercise 7 - using enumerate")
 # Option 2 : Enumerate
 
-#for key, value in enumerate(my_dict_1): # FIX ME
+# FIX ME
+#for key, value in enumerate(my_dict_1): 
     #print key, value
 
-for index, key in enumerate(my_dict_1.keys()): #getting a list with all the keys
-    print index, key, my_dict_1[key] 
+# for index, key in enumerate(my_dict_1.keys()): #getting a list with all the keys
+    # print index, key, my_dict_1[key] 
 
 
-sorted_keys = sorted(my_dict_1.keys())
-for key in sorted_keys:
-	print key, my_dict_1[key]
+# sorted_keys = sorted(my_dict_1.keys())
+# for key in sorted_keys:
+	# print key, my_dict_1[key]
 
 ################################################################################
 # Exercise 8 : Invert the dictionary, that, is, make a new dictionary where
 # the new keys are the old values and the new values are the old keys. 
 ################################################################################
 #haven't tested this yet 
-my_inverted_dict = dict([(v,k) for k, v in my_dict_1.iteritems()]) # FIX ME
+# FIX ME
+# my_inverted_dict = dict([(v,k) for k, v in my_dict_1.iteritems()]) 
 #dict is a method 
 print("\nExercise 8 - invert a dict")
-print("Inverting keys in values in my_dict_1 gives", my_inverted_dict)
+# print("Inverting keys in values in my_dict_1 gives", my_inverted_dict)
 
-OR: 
-for key in my_dict_1:
-	invert_dict[ my_dict_1[key] ] = key
+# OR: 
+# for key in my_dict_1:
+	# invert_dict[ my_dict_1[key] ] = key
 
 
 ################################################################################
 # Exercise 9 : Print the dictionary alphabetically by key
 ################################################################################
 print("\nExercise 9: the dict in ascending order by key")
-for key in {}: # FIX ME
-    print key
+# FIX ME
+# for key in {}: 
+    # print key
 
 ################################################################################
 # Exercise 10 : Print only the cities in california
@@ -109,11 +122,13 @@ for key in {}: # FIX ME
 cities = {"San Francisco":"CA", "New York":"NY", "Oakland":"CA", 
           "Los Angeles":"CA", "Seattle":"WA", "Detroit":"MI", "Jacksonville":"FL"}
 print("\nExercise 10")
-#for key in {}: # FIX ME
-    #print("I love {0} because it's a city in California".format(key)) # FIX ME
+# FIX ME
+#for key in {}: 
+    # FIX ME
+    #print("I love {0} because it's a city in California".format(key)) 
 
-if cities.has_key("California"):
-	print cities
+# if cities.has_key("California"):
+	# print cities
 
 ################################################################################
 #print the key, followed by a space, followed by the value associated with that key.
@@ -121,9 +136,9 @@ if cities.has_key("California"):
 
 d = {'a': 'apple', 'b': 'berry', 'c': 'cherry'}
 
-for key in d:
+# for key in d:
     # Your code here!
-    print key, d[key] 
+    # print key, d[key] 
 ################################################################################
 #Other examples
 ################################################################################
@@ -133,8 +148,8 @@ my_dict = {"Day 1": "Monday", "Day 2": "Tuesday", "Day 3": "Wednesday"}
 #print my_dict.keys()
 #print my_dict.values()
 
-for key in my_dict: 
-    print key, my_dict[key]
+# for key in my_dict: 
+    # print key, my_dict[key]
 
 ################################################################################
 
@@ -176,17 +191,19 @@ prices = {
     "orange": 1.5,
     "pear": 3
 }
-def compute_bill(food): 
-    total = 0
-    for item in food: 
-        total += prices[item] ************!!!!!!
-    return total 
+# def compute_bill(food): 
+#     total = 0
+#     for item in food: 
+        # ************!!!!!!
+    #     total += prices[item] 
+    # return total 
     
-def compute_bill(food): 
-    total = 0
-    for item in food: 
-        if stock[item] > 0: 
-            total += prices[item] ************!!!!!!
-            stock[item] -= 1 
-    return total 
+# def compute_bill(food): 
+#     total = 0
+#     for item in food: 
+#         if stock[item] > 0: 
+            # ************!!!!!!
+    #         total += prices[item] 
+    #         stock[item] -= 1 
+    # return total 
         
